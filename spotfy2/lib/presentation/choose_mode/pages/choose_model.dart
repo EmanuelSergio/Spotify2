@@ -1,11 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:spotfy2/common/widgets/button/basic_app_button.dart';
 import 'package:spotfy2/core/configs/assets/app_images.dart';
 import 'package:spotfy2/core/configs/assets/app_vectors.dart';
 import 'package:spotfy2/core/configs/theme/app_colors.dart';
+import 'package:spotfy2/presentation/choose_mode/bloc/theme_cubit.dart';
 
 class ChooseModelPage extends StatelessWidget {
   const ChooseModelPage({super.key});
@@ -53,16 +55,23 @@ class ChooseModelPage extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        Container(
-                          width: 80,
-                          height: 80,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xff30393c).withOpacity(0.5),
-                          ),
-                          child: SvgPicture.asset(
-                            AppVectors.moon,
-                            fit: BoxFit.none,
+                        GestureDetector(
+                          onTap: () {
+                            context.read<ThemeCubit>().updateTheme(
+                              ThemeMode.dark,
+                            );
+                          },
+                          child: Container(
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xff30393c).withOpacity(0.5),
+                            ),
+                            child: SvgPicture.asset(
+                              AppVectors.moon,
+                              fit: BoxFit.none,
+                            ),
                           ),
                         ),
                         SizedBox(height: 17),
@@ -79,16 +88,23 @@ class ChooseModelPage extends StatelessWidget {
                     SizedBox(width: 20),
                     Column(
                       children: [
-                        Container(
-                          width: 80,
-                          height: 80,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xff30393c).withOpacity(0.5),
-                          ),
-                          child: SvgPicture.asset(
-                            AppVectors.sun,
-                            fit: BoxFit.none,
+                        GestureDetector(
+                          onTap: () {
+                            context.read<ThemeCubit>().updateTheme(
+                              ThemeMode.light,
+                            );
+                          },
+                          child: Container(
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xff30393c).withOpacity(0.5),
+                            ),
+                            child: SvgPicture.asset(
+                              AppVectors.sun,
+                              fit: BoxFit.none,
+                            ),
                           ),
                         ),
                         SizedBox(height: 17),
