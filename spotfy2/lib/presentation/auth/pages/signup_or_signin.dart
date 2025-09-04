@@ -1,0 +1,85 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:spotfy2/common/widgets/button/basic_app_button.dart';
+import 'package:spotfy2/core/configs/assets/app_images.dart';
+import 'package:spotfy2/core/configs/assets/app_vectors.dart';
+import 'package:spotfy2/core/configs/theme/app_colors.dart';
+
+class SignupOrSigninPage extends StatelessWidget {
+  const SignupOrSigninPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          Align(
+            alignment: Alignment.topRight,
+            child: SvgPicture.asset(AppVectors.topPattern),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: SvgPicture.asset(AppVectors.bottomPattern),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Image.asset(AppImages.authBG),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(AppVectors.logo),
+                  SizedBox(height: 51),
+                  Text(
+                    "Enjoy Listening To Music",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
+                  ),
+                  SizedBox(height: 21),
+                  Text(
+                    textAlign: TextAlign.center,
+                    "Spotify is a proprietary Swedish audio streaming and media services provider",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17,
+                      color: AppColors.grey,
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: BasicAppButton(
+                          onPressed: () {},
+                          title: "Register",
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      Expanded(
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Sign in",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
