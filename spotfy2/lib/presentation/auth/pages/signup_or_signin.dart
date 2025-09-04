@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:spotfy2/common/helpers/is_dark_mode.dart';
+import 'package:spotfy2/common/widgets/appbar/app_bar.dart';
 import 'package:spotfy2/common/widgets/button/basic_app_button.dart';
 import 'package:spotfy2/core/configs/assets/app_images.dart';
 import 'package:spotfy2/core/configs/assets/app_vectors.dart';
@@ -13,6 +15,7 @@ class SignupOrSigninPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          const BasicAppBar(),
           Align(
             alignment: Alignment.topRight,
             child: SvgPicture.asset(AppVectors.topPattern),
@@ -67,7 +70,9 @@ class SignupOrSigninPage extends StatelessWidget {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
-                              color: Colors.white,
+                              color: context.isDarkMode
+                                  ? Colors.white
+                                  : Colors.black,
                             ),
                           ),
                         ),
