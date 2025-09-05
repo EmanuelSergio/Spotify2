@@ -6,6 +6,8 @@ import 'package:spotfy2/common/widgets/button/basic_app_button.dart';
 import 'package:spotfy2/core/configs/assets/app_images.dart';
 import 'package:spotfy2/core/configs/assets/app_vectors.dart';
 import 'package:spotfy2/core/configs/theme/app_colors.dart';
+import 'package:spotfy2/presentation/auth/pages/signin.dart';
+import 'package:spotfy2/presentation/auth/pages/signup.dart';
 
 class SignupOrSigninPage extends StatelessWidget {
   const SignupOrSigninPage({super.key});
@@ -57,14 +59,28 @@ class SignupOrSigninPage extends StatelessWidget {
                     children: [
                       Expanded(
                         child: BasicAppButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignUpPage(),
+                              ),
+                            );
+                          },
                           title: "Register",
                         ),
                       ),
                       SizedBox(width: 20),
                       Expanded(
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignInPage(),
+                              ),
+                            );
+                          },
                           child: Text(
                             "Sign in",
                             style: TextStyle(
